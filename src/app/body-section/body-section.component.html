@@ -1,0 +1,21 @@
+<main>
+    <div class="container bg-light p-5 m-3  ">
+    <h2 > Task List</h2>
+    <table class="table table-bordered ">
+        <thead>
+            <tr style="background-color: rgb(69, 189, 196);">
+                <th>Task ID</th>
+                <th>Task Description</th>
+                <th>Assigned To</th>
+                <th>Due Date [yyyy-mm-dd]</th>
+            </tr>
+        </thead>
+        <tbody id = "TableData">
+            <td>{{tableContent.id}}</td>
+            <td>{{tableContent.taskName}}</td>
+            <td>{{tableContent.assignedTo}}</td>
+            <td>{{tableContent.dueDate}}</td>
+        </tbody>
+    </table>
+</div>    
+</main>
