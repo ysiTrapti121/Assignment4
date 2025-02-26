@@ -1,6 +1,36 @@
 <main>
+    <div class="container-fluid p-5">
+        <h3 class="text-center">Task Details</h3>
+        <div class="container-fluid ">
+        <form class=" w-50 mx-auto p-4 border rounded" style="background-color: rgb(23, 225, 222);">
+            <!-- <div class="form-group ">
+                <label for="taskId">Task ID</label>
+                <input type="text" id="taskId" class="form-control" ><br>
+            </div> -->
+            <div class="form-group ">
+    
+                <label for="desc">Description</label>
+                <input type="text" [(ngModel)]="Task_Description" [ngModelOptions]="{standalone: true}" id="Task_Description" class="form-control">
+            </div>
+            <div class="form-group ">
+                <label for="assignedTo">Assigned To</label>
+                <input type="text" id="Assigned_To" [(ngModel)]="Assigned_To" [ngModelOptions]="{standalone: true}" class="form-control">
+            </div>
+            <div class="form-group ">
+                <label for="dueDate">Due Date</label>
+                <!-- ngModel for two way Binding -->
+                <input type="date" id="Due_Date" [(ngModel)]="Due_Date" [ngModelOptions]="{standalone: true}" class="form-control">
+            </div>
+              <!-- Note: Below we are using event binding to bind click event to save button 
+              its kind of passing data from template to component -->
+            <button type="submit" class="btn btn-primary mt-4" (click)="save()">Save</button>
+        </form>
+    </div>
+    </div>
+    <app-search></app-search>
+    
     <div class="container bg-light p-5 m-3  ">
-    <h2 > Task List</h2>
+    <h2 changetogreen> Task List</h2>
     <table class="table table-bordered ">
         <thead>
             <tr style="background-color: rgb(69, 189, 196);">
@@ -11,11 +41,22 @@
             </tr>
         </thead>
         <tbody id = "TableData">
-            <td>{{tableContent.id}}</td>
-            <td>{{tableContent.taskName}}</td>
-            <td>{{tableContent.assignedTo}}</td>
-            <td>{{tableContent.dueDate}}</td>
+            <!-- we are looping in taskArray using ngFor directive -->
+            <tr *ngFor="let task of taskArray">
+                <!--Note:  We are using property binding here -->
+            <td>{{task.Task_ID}}</td>
+            <td>{{task.Task_Description}}</td>
+            <td>{{task.Assigned_To}}</td>
+            <td>{{task.Due_Date}}</td>
+            <td>
+                <button type="button" class="btn btn-info m-3" (click)="setUpdate(task)">Edit</button>
+                <button type="button" class="btn btn-info m-3" (click)="setDelete(task)">Delete</button>
+            </td>
+            </tr>
         </tbody>
+
     </table>
-</div>    
+</div>   
+
+
 </main>
