@@ -37,7 +37,7 @@ export class TaskFormComponent {
         let Data={
           "Task_Description": this.Task_Description,
           "Assigned_To" : this.Assigned_To,
-          "Due_Data" : this.Due_Date
+          "Due_Date" : this.Due_Date
         }
         
         this.http.post("http://localhost:4000/api/tasks/add", Data).subscribe((resultData: any)=>{

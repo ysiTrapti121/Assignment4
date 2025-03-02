@@ -1,4 +1,34 @@
 <main>
+    <app-search></app-search>
+    
+    <div class="container bg-light p-5 m-3  ">
+    <h2 changetogreen> Task List</h2>
+    <table class="table table-bordered ">
+        <thead>
+            <tr style="background-color: rgb(69, 189, 196);">
+                <th>Task ID</th>
+                <th>Task Description</th>
+                <th>Assigned To</th>
+                <th>Due Date [yyyy-mm-dd]</th>
+            </tr>
+        </thead>
+        <tbody id = "TableData">
+            <!-- we are looping in taskArray using ngFor directive -->
+            <tr *ngFor="let task of taskArray">
+                <!--Note:  We are using property binding here -->
+            <td><a [routerLink]="['Task_Details']">{{task.Task_ID}}</a></td>
+            <td>{{task.Task_Description}}</td>
+            <td>{{task.Assigned_To}}</td>
+            <td>{{task.Due_Date}}</td>
+            <!-- <td>
+                <button type="button" class="btn btn-info m-3" (click)="setUpdate(task)">Edit</button>
+                <button type="button" class="btn btn-info m-3" (click)="setDelete(task)">Delete</button>
+            </td> -->
+            </tr>
+        </tbody>
+
+    </table>
+</div>   
     <div class="container-fluid p-5">
         <h3 class="text-center">Task Details</h3>
         <div class="container-fluid ">
@@ -27,36 +57,7 @@
         </form>
     </div>
     </div>
-    <app-search></app-search>
     
-    <div class="container bg-light p-5 m-3  ">
-    <h2 changetogreen> Task List</h2>
-    <table class="table table-bordered ">
-        <thead>
-            <tr style="background-color: rgb(69, 189, 196);">
-                <th>Task ID</th>
-                <th>Task Description</th>
-                <th>Assigned To</th>
-                <th>Due Date [yyyy-mm-dd]</th>
-            </tr>
-        </thead>
-        <tbody id = "TableData">
-            <!-- we are looping in taskArray using ngFor directive -->
-            <tr *ngFor="let task of taskArray">
-                <!--Note:  We are using property binding here -->
-            <td>{{task.Task_ID}}</td>
-            <td>{{task.Task_Description}}</td>
-            <td>{{task.Assigned_To}}</td>
-            <td>{{task.Due_Date}}</td>
-            <td>
-                <button type="button" class="btn btn-info m-3" (click)="setUpdate(task)">Edit</button>
-                <button type="button" class="btn btn-info m-3" (click)="setDelete(task)">Delete</button>
-            </td>
-            </tr>
-        </tbody>
-
-    </table>
-</div>   
 
 
 </main>
